@@ -59,3 +59,20 @@ if customer6_expected != customer6_paid:
     print(f"{customer6_name} paid ${customer6_paid:.2f},",
           f"expected ${customer6_expected:.2f}"
           )
+
+# variable melon cost $1
+# def a function that takes in a text file
+#   create variable that opens text file
+#   create variable that stores the customer name
+#   create variable that stores the amount of melons purchased
+#   create variable that stores the price paid for melons
+#   create variable that's the evaluated result that should be   charged 
+#       if amount expected is not the amount paid:
+#           display customer name paid x amount, expected x amount 
+
+MELON_COST = 1.00
+
+def customer_payment_status(text_file):
+    """Calculate cost of melons and determines who is underpaid"""
+    customer_payment_file = open(text_file)
+    order_id, customer_name, amount_of_melons, price_paid = order
