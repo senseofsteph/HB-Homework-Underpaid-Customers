@@ -74,21 +74,21 @@
 
 
 MELON_COST = 1.00
-def customer_payment_status(text_file):
+def customer_payment_status(customer_payment_file_name):
     """Calculate cost of melons and determines who is underpaid"""
     
-    customer_payment_file = open(text_file)
+    customer_payment_data = open(customer_payment_file_name)
     
-    (order_id, 
-    customer_name, 
-    amount_of_melons, 
-    amount_paid) = [float(data) if data.isdigit() else data for data in order]
+    for line in customer_payment_data:
+    
+        order = line.split('|')
+        full_name = order[1]
+        first_name = full_name.split(" ")[0]
+        melon_count = float(order[2])
+        amount_paid = float(order[3])
+        expected_price = melon_count * MELON_COST
 
-    first_name, last_name = customer_name.split(" ")
-
-    expected_price = amount_of_melons * MELON_COST
-
-    print(f"{customer_name} paid ${amount_paid:.2f}, expected", f"${expected_price:.2f}")
+    print(f"{full_name} paid ${amount_paid:.2f}, expected", f"${expected_price:.2f}")
 
     if expected_price != amount_paid:
 
@@ -98,8 +98,8 @@ def customer_payment_status(text_file):
         else:
             payment_status = "overpaid"
 
-        print(f"{first_name} has {payment_status} for their melons.")
+            print(f"{full_name} has {payment_status} for their melons.")
 
-customer_payment_file.close()
+    customer_payment_data.close()
 
 customer_payment_status("customer-orders.txt")
