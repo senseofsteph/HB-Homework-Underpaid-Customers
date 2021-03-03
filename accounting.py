@@ -1,4 +1,9 @@
-# melon_cost = 1.00
+"""Calculates the cost of melons and determins who has underpaid"""
+
+# Previous code is commented out
+# Functional code starts on line 80
+
+# melon_cost = 1.00 
 
 # customer1_name = "Joe"
 # customer1_melons = 5
